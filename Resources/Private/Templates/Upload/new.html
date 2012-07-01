@@ -1,0 +1,65 @@
+<f:layout name="upload" />
+
+<f:section name="content">
+	
+	<f:form enctype="multipart/form-data" action="create" controller="Upload" objectName="file" object="{file}" method="post">
+		
+		<f:render partial="FormErrors" arguments="{formName: 'file'}" />
+		
+		<fieldset>
+			<ol>
+				<li>
+					<label for="tx-feupload-title"><f:translate key="file.attributes.title" /></label>
+					<f:form.textfield property="title" id="tx-feupload-title"></f:form.textfield>
+				</li>
+				
+				<li>
+					<label for="tx-feupload-file"><f:translate key="file.attributes.file" /></label>
+					<f:form.upload property="file" id="tx-feupload-file"></f:form.upload>
+					<small>{allowedFileExtensions}</small>
+				</li>
+				
+				<li>
+					<fieldset>
+						<ol>
+							<li>
+								<f:form.radio id="tx-feupload-visibility-public" name="visibility" value="public" checked="checked"/>
+								<label for="tx-feupload-visibility-public"><f:translate key="file.attributes.visibility.public" /></label>
+							</li>
+							
+							<li>
+								<f:form.radio id="tx-feupload-visibility-login" name="visibility" value="login" />
+								<label for="tx-feupload-visibility-public"><f:translate key="file.attributes.visibility.login" /></label>
+							</li>
+							
+							<f:if condition="<f:count subject='{groups}' /> > 0">
+								<f:then>
+									<li>
+										<f:form.radio id="tx-feupload-visibility-groups" name="visibility" value="groups" /> 
+										<label for="tx-feupload-visibility-groups"><f:translate key="file.attributes.visibility.groups" /></label>
+										
+										<fieldset id="tx-feupload-visibility-groups-fieldset">
+											<ol>
+												<f:for each="{groups}" as="group">
+													<li>
+														<f:form.checkbox id="tx-feupload-groups-{group.uid}" name="groups[]" value="{group.uid}" />
+														<label for="tx-feupload-groups-{group.uid}">{group.title}</label>
+													</li>
+												</f:for>
+											</ol>
+										</fieldset>
+									</li>
+								</f:then>
+							</f:if>
+							
+						</ol>
+					</fieldset>
+				</li>
+			</ol>
+			
+			<f:form.submit class="button" value="{f:translate(key: 'file.form.upload')}"></f:form.submit>
+		</fieldset>
+		
+	</f:form>
+	
+</f:section>

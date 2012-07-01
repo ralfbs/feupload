@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_feupload_domain_model_file">File</label>
+			<label index="tx_feupload_domain_model_file.title">Title</label>
+			<label index="tx_feupload_domain_model_file.file">File</label>
+			<label index="tx_feupload_domain_model_file.fe_user">Owner</label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty">(No owner)</label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Users</label>
+			<label index="tx_feupload_domain_model_file.visibility">Visibility</label>
+			<label index="tx_feupload_domain_model_file.visibility.only_groups">For selected groups only</label>
+			<label index="tx_feupload_domain_model_file.visibility.public">Visible for everyone</label>
+			<label index="tx_feupload_domain_model_file.visibility.not_logged_in">Only for not logged in users</label>
+			<label index="tx_feupload_domain_model_file.visibility.logged_in">Every logged in user</label>
+			<label index="fe_groups.storage_pid">Store uploads from this group in Page</label>
+			<label index="fe_groups.append_group_ids">Additionally add these Groups to Uploads</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="tx_feupload_domain_model_file">Datei</label>
+			<label index="tx_feupload_domain_model_file.title">Titel</label>
+			<label index="tx_feupload_domain_model_file.file">Datei</label>
+			<label index="tx_feupload_domain_model_file.fe_user">Besitzer</label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty">(Kein Besitzer)</label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Benutzer</label>
+			<label index="fe_groups.storage_pid">Speichere Uploads dieser Gruppe in Seite</label>
+			<label index="fe_groups.append_group_ids">Folgende Gruppen zusätzlich dem Upload zuweisen</label>
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+			<label index="tx_feupload_domain_model_file">Fichier</label>
+			<label index="tx_feupload_domain_model_file.title">Title</label>
+			<label index="tx_feupload_domain_model_file.file">Fichier</label>
+			<label index="tx_feupload_domain_model_file.fe_user"><![CDATA[Propriétaire]]></label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty"><![CDATA[Aucun propriétaire]]></label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Membres</label>
+		</languageKey>
+		
+		<languageKey index="it" type="array">
+			<label index="tx_feupload_domain_model_file">Dato</label>
+			<label index="tx_feupload_domain_model_file.title">Titulo</label>
+			<label index="tx_feupload_domain_model_file.file">Dato</label>
+			<label index="tx_feupload_domain_model_file.fe_user">Proprietario</label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty">Senza proprietario</label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Untenti</label>
+		</languageKey>
+		
+		<languageKey index="es" type="array">
+			<label index="tx_feupload_domain_model_file">Fichero</label>
+			<label index="tx_feupload_domain_model_file.title">Titulo</label>
+			<label index="tx_feupload_domain_model_file.file">Fichero</label>
+			<label index="tx_feupload_domain_model_file.fe_user">Propietario</label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty"><![CDATA[Ningún propietario]]></label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Usarios</label>
+		</languageKey>
+	</data>
+</T3locallang>

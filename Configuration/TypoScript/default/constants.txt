@@ -1,0 +1,18 @@
+plugin.tx_feupload {
+	view {
+		# cat=feupload/view; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:feupload/Resources/Private/Templates/
+		
+		# cat=feupload/view; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:feupload/Resources/Private/Partials/
+		
+		# cat=feupload/view; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:feupload/Resources/Private/Layouts/
+	}
+
+	persistence {
+		# cat=feupload/persistence; type=integer; label=Storage PID of records
+		storagePid =
+	}
+	
+}

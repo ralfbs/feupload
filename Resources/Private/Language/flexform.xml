@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="download.sheets.main">Settings</label>
+			<label index="download.settings.sorting.field">Record sorting by field</label>
+			<label index="download.settings.sorting.field.name">Name</label>
+			<label index="download.settings.sorting.field.crdate">Creation date</label>
+			<label index="download.settings.sorting.mode.asc">Ascending</label>
+			<label index="download.settings.sorting.mode.desc">Descending</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="download.sheets.main">Einstellungen</label>
+			<label index="download.settings.sorting.field"><![CDATA[Sortierung der Einträge nach Feld]]></label>
+			<label index="download.settings.sorting.field.name">Name</label>
+			<label index="download.settings.sorting.field.crdate">Erstelldatum</label>
+			<label index="download.settings.sorting.mode.asc">Aufsteigend</label>
+			<label index="download.settings.sorting.mode.desc">Absteigend</label>
+		</languageKey>
+	</data>
+</T3locallang>

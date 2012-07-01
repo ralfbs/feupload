@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <main>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.sheets.main</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.sorting.field>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.field</label>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.field.name</numIndex>
+                                        <numIndex index="1">getTitle</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.field.crdate</numIndex>
+                                        <numIndex index="1">getCrdate</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.sorting.field>
+                   
+                    <settings.sorting.mode>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.mode</label>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0">LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.mode.asc</numIndex>
+                                        <numIndex index="1">ASC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:feupload/Resources/Private/Language/flexform.xml:download.settings.sorting.mode.desc</numIndex>
+                                        <numIndex index="1">DESC</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.sorting.mode>
+                </el>
+            </ROOT>
+        </main>
+    </sheets>
+</T3DataStructure>

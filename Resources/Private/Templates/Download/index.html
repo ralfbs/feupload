@@ -1,0 +1,30 @@
+<f:layout name="download" />
+
+<f:section name="content">
+	{namespace fu=Tx_Feupload_ViewHelpers}
+	
+		<table>
+			<tr>
+				<th>File type</th>
+				<th>Download</td>
+				<th>Owner</th>
+				<th>Created at</th>
+				<th></th>
+			</tr>
+			<f:for each="{files}" as="file">
+			<tr>
+				<td>{file.fileExt}</td>
+				<td><fu:download file="{file}" /></td>
+				<td>{file.owner.username}</td>
+				<td><f:format.date>@{file.crdate}</f:format.date></td>
+				<td>
+					<f:if condition="{file.deletable}">
+						<f:then>
+							<f:link.action action="delete" arguments="{file: file}" class="delete"><f:translate key="file.action.delete" /></f:link.action>
+						</f:then>
+					</f:if>
+				</td>
+			</tr>
+			</f:for>
+		</table>
+</f:section>

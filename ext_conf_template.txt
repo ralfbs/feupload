@@ -1,0 +1,5 @@
+# cat=feupload/basic; type=boolean; label=Use storage page: Only retrieve database records from storage page
+enableStoragePage = 0
+
+# cat=feupload/basic; type=string; label=Allowed file extensions: Allow the following extensions to be uploaded
+allowedFileExtensions = gif,png,jpeg,jpg,tiff,pdf,xls,xlsx,doc,docx,ppt,pptx,pdf,zip,rar

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="file.attributes.title">Title</label>
+			<label index="file.attributes.file">File</label>
+			<label index="file.attributes.visibility.public">Public</label>
+			<label index="file.attributes.visibility.login">Only for logged-in users</label>
+			<label index="file.attributes.visibility.groups">Only for user groups defined below</label>
+			
+			<label index="file.form.upload">upload</label>
+			<label index="file.action.delete">delete</label>
+			
+			<label index="file.errors.title.1221560718">Title cannot be empty</label>
+			<label index="file.errors.file.1332507175">No file given</label>
+			<label index="file.errors.file.1332941667">This file type is not allowed</label>
+			
+			<label index="flash.error.file.not_deleted.title"><![CDATA[Cannot delete file]]></label>
+			<label index="flash.error.file.not_deleted.content"><![CDATA[You are not authorized to delete the selected file]]></label>
+			<label index="flash.ok.file.deleted.title">File deleted</label>
+			<label index="flash.ok.file.deleted.content">The file has been deleted successfully</label>
+			<label index="flash.ok.file.uploaded.title">File uploaded</label>
+			<label index="flash.ok.file.uploaded.content">Your file has been uploaded successfully</label>
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<label index="file.attributes.title">Titel</label>
+			<label index="file.attributes.file">Datei</label>
+			<label index="file.attributes.visibility.public"><![CDATA[Öffentlich]]></label>
+			<label index="file.attributes.visibility.login"><![CDATA[Nur für angemeldete Benutzer]]></label>
+			<label index="file.attributes.visibility.groups"><![CDATA[Nur für folgende Benutzergruppen]]></label>
+			
+			<label index="file.form.upload">hochladen</label>
+			<label index="file.action.delete"><![CDATA[löschen]]></label>
+			
+			<label index="file.errors.title.1221560718">Kein Titel angegeben</label>
+			<label index="file.errors.file.1332507175"><![CDATA[Keine Datei ausgewählt]]></label>
+			<label index="file.errors.file.1332941667"><![CDATA[Dieser Dateityp kann nicht hochgeladen werden]]></label>
+			
+			<label index="flash.error.file.not_deleted.title"><![CDATA[Datei kann nicht gelöscht werden]]></label>
+			<label index="flash.error.file.not_deleted.content"><![CDATA[Sie sind nicht dazu berechtigt, diese Datei zu löschen]]></label>
+			<label index="flash.ok.file.deleted.title"><![CDATA[Datei gelöscht]]></label>
+			<label index="flash.ok.file.deleted.content"><![CDATA[Die Datei wurde gelöscht]]></label>
+			<label index="flash.ok.file.uploaded.title">Datei hochgeladen</label>
+			<label index="flash.ok.file.uploaded.content">Ihre Datei wurde hochgeladen</label>
+		</languageKey>
+		
+		<languageKey index="fr" type="array">
+			<label index="file.attributes.title">Titre</label>
+			<label index="file.attributes.file">Fichier</label>
+			<label index="file.attributes.visibility.public">Public</label>
+			<label index="file.attributes.visibility.login">Seulement pour membres inscrits</label>
+			<label index="file.attributes.visibility.groups">Seulement pour les suivants groupe de membre</label>
+			
+			<label index="file.form.upload"><![CDATA[télécharger]]></label>
+			<label index="file.action.delete">effacer</label>
+			
+			<label index="file.errors.title.1221560718"><![CDATA[Titre ne peut pas être vide]]></label>
+			<label index="file.errors.file.1332507175"><![CDATA[Pas de fichier donné]]></label>
+			<label index="file.errors.file.1332941667"><![CDATA[Ce type de fichier n'est pas autorisé]]></label>
+			
+			<label index="flash.error.file.not_deleted.title"><![CDATA[Cannot delete file]]></label>
+			<label index="flash.error.file.not_deleted.content"><![CDATA[You are not authorized to delete the selected file]]></label>
+			<label index="flash.ok.file.deleted.title"><![CDATA[fichier supprimé]]></label>
+			<label index="flash.ok.file.deleted.content"><![CDATA[Le fichier a été supprimé avec succès]]></label>
+			<label index="flash.ok.file.uploaded.title"><![CDATA[fichier téléchargé]]></label>
+			<label index="flash.ok.file.uploaded.content"><![CDATA[Votre fichier a été envoyé avec succès]]></label>
+		</languageKey>
+		
+		<languageKey index="it" type="array">
+			<label index="file.attributes.title">Titulo</label>
+			<label index="file.attributes.file">Dato</label>
+			<label index="file.attributes.visibility.public">Pubblico</label>
+			<label index="file.attributes.visibility.login">Solo per gli utenti registrati</label>
+			<label index="file.attributes.visibility.groups">Solo per i seguenti gruppi di untenti</label>
+			
+			<label index="file.form.upload">caricare</label>
+			<label index="file.action.delete">cancellare</label>
+			
+			<label index="file.errors.title.1221560718"><![CDATA[Il titolo non può essere vuoto]]></label>
+			<label index="file.errors.file.1332507175">Nessun file selezionato</label>
+			<label index="file.errors.file.1332941667"><![CDATA[Questo tipo di file non è consentito]]></label>
+			
+			<label index="flash.ok.file.deleted.title"><![CDATA[Dato cancellati]]></label>
+			<label index="flash.ok.file.deleted.content"><![CDATA[Il file è stato eliminato con successo]]></label>
+			<label index="flash.ok.file.uploaded.title"><![CDATA[Dato caricato]]></label>
+			<label index="flash.ok.file.uploaded.content"><![CDATA[Il file è stato caricato con successo]]></label>
+		</languageKey>
+	</data>
+</T3locallang>
