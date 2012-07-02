@@ -3,3 +3,6 @@ enableStoragePage = 0
 
 # cat=feupload/basic; type=string; label=Allowed file extensions: Allow the following extensions to be uploaded
 allowedFileExtensions = gif,png,jpeg,jpg,tiff,pdf,xls,xlsx,doc,docx,ppt,pptx,pdf,zip,rar
+
+# cat=feupload/basic; type=string; label=Default file visibility: 'public','login','groups' - leave empty (default) for selection by user
+defaultFileVisibility =
