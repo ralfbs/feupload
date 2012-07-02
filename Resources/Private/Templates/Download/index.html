@@ -3,16 +3,16 @@
 <f:section name="content">
 	{namespace fu=Tx_Feupload_ViewHelpers}
 	
-		<table>
+		<table class="tx-feupload-downloadtable">
 			<tr>
-				<th>File type</th>
-				<th>Download</td>
-				<th>Owner</th>
-				<th>Created at</th>
-				<th></th>
+				<th><f:translate key="file.table.type" /></th>
+				<th><f:translate key="file.table.download" /></td>
+				<th><f:translate key="file.table.owner" /></th>
+				<th><f:translate key="file.table.created" /></th>
+				<th><f:translate key="file.action.delete" /></th>
 			</tr>
-			<f:for each="{files}" as="file">
-			<tr>
+			<f:for each="{files}" as="file" iteration="iter">
+			<tr class='<f:if condition="{iter.isEven}"><f:then>tr-even</f:then><f:else>tr-odd</f:else></f:if>'>
 				<td>{file.fileExt}</td>
 				<td><fu:download file="{file}" /></td>
 				<td>{file.owner.username}</td>

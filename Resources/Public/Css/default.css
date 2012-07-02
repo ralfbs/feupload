@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+.tx-feupload-upload {
+	
+}
+
+.tx-feupload-download {
+	
+}
+
+.tx-feupload-downloadtable {
+	border-collapse: separate;
+	border-spacing: 2px;
+}
+
+.tx-feupload-downloadtable tr th {
+	text-align: center;
+	padding: 3px 5px;
+}
+
+.tx-feupload-downloadtable .tr-even {
+	background-color: #e9e9e9;
+}
+
+.tx-feupload-downloadtable td {
+	padding: 3px;
+}

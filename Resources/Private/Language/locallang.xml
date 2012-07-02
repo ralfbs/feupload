@@ -21,6 +21,11 @@
 			<label index="flash.ok.file.deleted.content">The file has been deleted successfully</label>
 			<label index="flash.ok.file.uploaded.title">File uploaded</label>
 			<label index="flash.ok.file.uploaded.content">Your file has been uploaded successfully</label>
+			
+			<label index="file.table.type">File type</label>
+			<label index="file.table.download">File type</label>
+			<label index="file.table.owner">Onwer</label>
+			<label index="file.table.created">Created at</label>
 		</languageKey>
 		
 		<languageKey index="de" type="array">
@@ -43,6 +48,12 @@
 			<label index="flash.ok.file.deleted.content"><![CDATA[Die Datei wurde gelöscht]]></label>
 			<label index="flash.ok.file.uploaded.title">Datei hochgeladen</label>
 			<label index="flash.ok.file.uploaded.content">Ihre Datei wurde hochgeladen</label>
+			
+			<label index="file.table.type">Typ</label>
+			<label index="file.table.download">Datei</label>
+			<label index="file.table.owner">Eigentümer</label>
+			<label index="file.table.created">Erstellt</label>			
+			
 		</languageKey>
 		
 		<languageKey index="fr" type="array">
