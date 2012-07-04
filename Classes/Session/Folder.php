@@ -48,6 +48,27 @@ class Tx_Feupload_Session_Folder implements t3lib_Singleton
     }
 
     /**
+     * return the current folder - retrive an empty one for roots
+     * 
+     * @return Tx_Feupload_Domain_Model_Folder
+     */
+    public function getCurrentFolder ()
+    {    
+        $folderId = (int) $this->restoreFromSession(); 
+        if (0 < $folderId) {
+            /* @var $folderRepositry Tx_Feupload_Domain_Repository_FolderRepository */
+            $folderRepositry = t3lib_div::makeInstance(
+                    'Tx_Feupload_Domain_Repository_FolderRepository');
+            $folder = $folderRepositry->findByUid($folderId);
+        } else {
+            /* @var $folder Tx_Feupload_Domain_Model_Folder */
+            $folder = t3lib_div::makeInstance('Tx_Feupload_Domain_Model_Folder');
+            $folder->setUid(0);
+        }
+        return $folder;
+    }
+
+    /**
      * Writes an object into the PHP session
      *
      * @param $object any

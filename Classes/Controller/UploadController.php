@@ -141,6 +141,7 @@ class Tx_Feupload_Controller_UploadController extends Tx_Extbase_MVC_Controller_
                 if ($group) $groups[] = $group;
             }
         } 
+        
         $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['feupload']);
         $defaultVisibility = $extConf['defaultFileVisibility'];
         $this->view->assign('allowVisibiltySelection', empty($defaultVisibility));
@@ -211,7 +212,10 @@ class Tx_Feupload_Controller_UploadController extends Tx_Extbase_MVC_Controller_
             }
         }
         
-
+        /* @var $sessionHandler Tx_Feupload_Session_Folder */
+        $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
+        $file->setFolder($sessionHandler->getCurrentFolder());
+        
         $this->fileRepository->add($file);
         
 

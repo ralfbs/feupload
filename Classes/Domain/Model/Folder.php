@@ -264,4 +264,14 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
             return false;
         }
     }
+
+    /**
+     * we have to create folders with uid=0 for the root directory
+     * 
+     * @param integer $uid            
+     */
+    public function setUid ($uid)
+    {
+        $this->uid = $uid;
+    }
 }
