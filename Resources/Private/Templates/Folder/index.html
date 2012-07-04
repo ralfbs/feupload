@@ -1,0 +1,34 @@
+<f:layout name="default" />
+
+<f:section name="content">
+	{namespace fu=Tx_Feupload_ViewHelpers}
+	
+		<table class="tx-feupload-foldertable">
+			<tr>
+				<th><f:translate key="file.table.download" /></td>
+				<th><f:translate key="file.table.owner" /></th>
+				<th><f:translate key="file.table.created" /></th>
+				<th><f:translate key="file.action.delete" /></th>
+			</tr>
+			<tr class='even'>
+				<td>..</td>
+				<td></td>
+				<td></td>
+				<td></td>
+
+			<f:for each="{folders}" as="file" iteration="iter">
+			<tr class='<f:if condition="{iter.isEven}"><f:then>tr-even</f:then><f:else>tr-odd</f:else></f:if>'>
+				<td>{file.title}</td>
+				<td>{file.owner.username}</td>
+				<td><f:format.date>@{file.crdate}</f:format.date></td>
+				<td>
+					<f:if condition="{file.deletable}">
+						<f:then>
+							<f:link.action action="delete" arguments="{file: file}" class="delete"><f:translate key="file.action.delete" /></f:link.action>
+						</f:then>
+					</f:if>
+				</td>
+			</tr>
+			</f:for>
+		</table>
+</f:section>

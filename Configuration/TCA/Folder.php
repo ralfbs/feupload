@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2012 Pascal Dürsteler <pascal.duersteler@gmail.com>
+*  (c) 2012 Ralf Schneider <ralf@hr-interactive.de>
 *  All rights reserved
 *
 *
@@ -27,34 +27,22 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 
 $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['feupload']);
 
-$TCA['tx_feupload_domain_model_file'] = array(
-	'ctrl' => $TCA['tx_feupload_domain_model_file']['ctrl'],
+$TCA['tx_feupload_domain_model_folder'] = array(
+	'ctrl' => $TCA['tx_feupload_domain_model_folder']['ctrl'],
 	'interface' => array(
 		'showRecordFieldList' => 'title, crdate'
 	),
 	'columns' => array(
 		'title' => array (
 			'exclude' => 0,
-			'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.title',
+			'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_folder.title',
 			'config' => array (
 				'type' => 'input',
 				'max'  => 255,
 				'eval' => 'trim,required'
 			)
 		),
-		'file' => array (
-			'exclude' => 0,
-			'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.file',
-			'config' => array (
-				'type' => 'group',
-				'internal_type' => 'file',
-				'uploadfolder' => 'uploads/feupload/',
-				'allowed' => $extConf['allowedFileExtensions'],
-				'size' => 1,
-				'maxitems' => 1,
-				'minitems' => 1
-			)
-		),
+
 		'visibility' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.visibility',
@@ -117,25 +105,9 @@ $TCA['tx_feupload_domain_model_file'] = array(
 				'size' => 7,
 				'maxitems' => 20,
 				'foreign_table' => 'fe_groups',
-				'MM' => 'tx_feupload_file_fegroup_mm'
+				'MM' => 'tx_feupload_folder_fegroup_mm'
 			)
-		) , 
-        'folder' => array(
-            'exclude' => 1 , 
-            'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.folder' , 
-            'config' => array(
-                'type' => 'select' , 
-                'size' => 1 , 
-                'maxitems' => 1 , 
-                'minitems' => 0 , 
-                'items' => array(
-                    array('LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.folder.empty' , '') , 
-                    array(
-                        'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_file.folder.div' , 
-                        '--div--')) , 
-                'foreign_table' => 'tx_feupload_domain_model_folder' , 
-                'foreign_table_where' => '')),
-	
+		),
 		'crdate' => array(
 			'exclude' => 1,
 			'label' => '[crdate]',
@@ -146,7 +118,7 @@ $TCA['tx_feupload_domain_model_file'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'fe_user, title, file, visibility, fe_groups')
+		'0' => array('showitem' => 'fe_user, title, visibility, fe_groups')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

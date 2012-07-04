@@ -8,11 +8,16 @@
 			<label index="tx_feupload_domain_model_file.fe_user">Owner</label>
 			<label index="tx_feupload_domain_model_file.fe_user.empty">(No owner)</label>
 			<label index="tx_feupload_domain_model_file.fe_user.div">Users</label>
+			<label index="tx_feupload_domain_model_file.folder">Folder</label>
+			<label index="tx_feupload_domain_model_file.fe_user.empty">(Root)</label>
+			<label index="tx_feupload_domain_model_file.fe_user.div">Folders</label>
 			<label index="tx_feupload_domain_model_file.visibility">Visibility</label>
 			<label index="tx_feupload_domain_model_file.visibility.only_groups">For selected groups only</label>
 			<label index="tx_feupload_domain_model_file.visibility.public">Visible for everyone</label>
 			<label index="tx_feupload_domain_model_file.visibility.not_logged_in">Only for not logged in users</label>
 			<label index="tx_feupload_domain_model_file.visibility.logged_in">Every logged in user</label>
+			<label index="tx_feupload_domain_model_folder">Folder</label>
+			<label index="tx_feupload_domain_model_folder.title">Folder name</label>
 			<label index="fe_groups.storage_pid">Store uploads from this group in Page</label>
 			<label index="fe_groups.append_group_ids">Additionally add these Groups to Uploads</label>
 		</languageKey>

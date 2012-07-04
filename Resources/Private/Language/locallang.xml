@@ -21,6 +21,13 @@
 			<label index="flash.ok.file.deleted.content">The file has been deleted successfully</label>
 			<label index="flash.ok.file.uploaded.title">File uploaded</label>
 			<label index="flash.ok.file.uploaded.content">Your file has been uploaded successfully</label>
+
+			<label index="flash.error.folder.not_deleted.title"><![CDATA[Cannot delete folder]]></label>
+			<label index="flash.error.folder.not_deleted.content"><![CDATA[You are not authorized to delete the selected folder]]></label>
+			<label index="flash.ok.folder.deleted.title">Folder deleted</label>
+			<label index="flash.ok.folder.deleted.content">The folder has been deleted successfully</label>
+			<label index="flash.ok.folder.uploaded.title">Folder uploaded</label>
+			<label index="flash.ok.folder.uploaded.content">Your folder has been uploaded successfully</label>
 			
 			<label index="file.table.type">File type</label>
 			<label index="file.table.download">File type</label>
