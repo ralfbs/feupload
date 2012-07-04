@@ -76,7 +76,7 @@ $TCA['tx_feupload_domain_model_folder'] = array(
         'dividers2tabs' => true , 
         'searchFields' => 'title' , 
         'requestUpdate' => 'visibility' , 
-        'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Private/Icons/default.png'));
+        'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Private/Icons/folder.png'));
 
 
 t3lib_div::loadTCA('fe_groups');

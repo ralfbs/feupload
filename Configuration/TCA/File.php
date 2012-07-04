@@ -146,7 +146,7 @@ $TCA['tx_feupload_domain_model_file'] = array(
 		),
 	),
 	'types' => array(
-		'0' => array('showitem' => 'fe_user, title, file, visibility, fe_groups')
+		'0' => array('showitem' => 'fe_user, title, file, folder, visibility, fe_groups')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

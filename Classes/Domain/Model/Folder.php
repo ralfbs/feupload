@@ -24,7 +24,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-
 /**
  * Folder model
  *
@@ -41,7 +40,6 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
      */
     protected $title;
 
-    
     /**
      *
      * @var Tx_Feupload_Domain_Model_FrontendUser @dontvalidate
@@ -54,6 +52,12 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
      *      @lazy
      */
     protected $feGroups;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $parent;
 
     /**
      * 1 = For assigned groups only
@@ -71,166 +75,159 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
      */
     protected $crdate;
 
-
-
     /**
      *
      * @return void
      */
-    public function __construct()
+    public function __construct ()
     {
-        if (! $this->crdate) $this->setCrdate();
+        if (! $this->crdate)
+            $this->setCrdate();
         $this->setFrontendUserGroups(new Tx_Extbase_Persistence_ObjectStorage());
     }
-
-
 
     /**
      *
      * @param string $title            
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle ($title)
     {
         $this->title = $title;
     }
-
-
 
     /**
      *
      * @return string
      */
-    public function getTitle()
+    public function getTitle ()
     {
         return $this->title;
     }
-
-
 
     /**
      *
      * @param înteger $visibility            
      * @return void
      */
-    public function setVisibility($visibility)
+    public function setVisibility ($visibility)
     {
         $this->visibility = $visibility;
     }
-
-
 
     /**
      *
      * @return integer
      */
-    public function getVisibility()
+    public function getVisibility ()
     {
         return $this->visibility;
     }
-
-
 
     /**
      *
      * @return Tx_Extbase_Persistence_ObjectStorage
      */
-    public function getFrontendUserGroups()
+    public function getFrontendUserGroups ()
     {
         return $this->feGroups;
     }
-
-
 
     /**
      *
      * @param Tx_Extbase_Persistence_ObjectStorage $frontendUserGroups            
      * @return void
      */
-    public function setFrontendUserGroups(Tx_Extbase_Persistence_ObjectStorage $frontendUserGroups)
+    public function setFrontendUserGroups (
+            Tx_Extbase_Persistence_ObjectStorage $frontendUserGroups)
     {
         $this->feGroups = $frontendUserGroups;
     }
-
-
 
     /**
      *
      * @param Tx_Feupload_Domain_Model_FrontendUserGroup $frontendUserGroup            
      * @return void
      */
-    public function addFrontendUserGroup(Tx_Feupload_Domain_Model_FrontendUserGroup $frontendUserGroup)
+    public function addFrontendUserGroup (
+            Tx_Feupload_Domain_Model_FrontendUserGroup $frontendUserGroup)
     {
         $this->feGroups->attach($frontendUserGroup);
     }
-
-
 
     /**
      *
      * @param Tx_Feupload_Domain_Model_FrontendUser $feUser            
      * @return void
      */
-    public function setOwner(Tx_Feupload_Domain_Model_FrontendUser $feUser)
+    public function setOwner (Tx_Feupload_Domain_Model_FrontendUser $feUser)
     {
         $this->feUser = $feUser;
     }
-
-
 
     /**
      *
      * @return Tx_Feupload_Domain_Model_FrontendUser
      */
-    public function getOwner()
+    public function getOwner ()
     {
         return $this->feUser;
     }
-
-
+    /**
+     * 
+     * @param integer $parent
+     */
+    public function setParent ($parent)
+    {
+        $this->parent = $parent;
+    }
+    /**
+     * 
+     * @return integer
+     */
+    public function getParent ()
+    {
+        return $this->parent;
+    }
 
     /**
      *
      * @param integer $time            
      * @return void
      */
-    public function setCrdate($time = null)
+    public function setCrdate ($time = null)
     {
-        if ($time == null) $time = time();
+        if ($time == null)
+            $time = time();
         $this->crdate = $time;
     }
-
-
 
     /**
      *
      * @return integer
      */
-    public function getCrdate()
+    public function getCrdate ()
     {
         return (int) $this->crdate;
     }
-
-
 
     /**
      *
      * @return integer in bytes
      */
-    public function getSize()
+    public function getSize ()
     {
         return filesize('uploads/feupload/' . $this->file);
     }
-
-
 
     /**
      *
      * @return boolean
      */
-    public function getDeletable()
+    public function getDeletable ()
     {
-        if ($GLOBALS['TSFE']->fe_user->user && (int) $GLOBALS['TSFE']->fe_user->user['uid'] == (int) $this->feUser->uid) {
+        if ($GLOBALS['TSFE']->fe_user->user && (int) $GLOBALS['TSFE']->fe_user->user['uid'] ==
+                 (int) $this->feUser->uid) {
             return true;
         } else {
             return false;
