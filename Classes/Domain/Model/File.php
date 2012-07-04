@@ -35,6 +35,34 @@ class Tx_Feupload_Domain_Model_File extends Tx_Extbase_DomainObject_AbstractEnti
 {
 
     /**
+     * For assigned groups only
+     *
+     * @var interer
+     */
+    CONST VISIBILITY_GROUPS = 1;
+
+    /**
+     * Public
+     *
+     * @var integer
+     */
+    CONST VISIBILITY_PUBLIC = 0;
+
+    /**
+     * For not-logged in users
+     * 
+     * @var integer
+     */
+    CONST VISIBILITY_NOTLOGGEDIN = - 1;
+
+    /**
+     * For all logged-in users
+     * 
+     * @var integer
+     */
+    CONST VISIBILITY_LOGGEDIN = - 2;
+
+    /**
      *
      * @var string @validate NotEmpty
      */

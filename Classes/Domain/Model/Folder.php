@@ -35,6 +35,34 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
 {
 
     /**
+     * For assigned groups only
+     *
+     * @var interer
+     */
+    CONST VISIBILITY_GROUPS = 1;
+
+    /**
+     * Public
+     *
+     * @var integer
+     */
+    CONST VISIBILITY_PUBLIC = 0;
+
+    /**
+     * For not-logged in users
+     *
+     * @var integer
+     */
+    CONST VISIBILITY_NOTLOGGEDIN = - 1;
+
+    /**
+     * For all logged-in users
+     *
+     * @var integer
+     */
+    CONST VISIBILITY_LOGGEDIN = - 2;
+
+    /**
      *
      * @var string @validate NotEmpty
      */
@@ -54,8 +82,9 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
     protected $feGroups;
 
     /**
+     * parent folder
      *
-     * @var integer
+     * @var Tx_Feupload_Domain_Model_Folder
      */
     protected $parent;
 
@@ -173,17 +202,19 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
     {
         return $this->feUser;
     }
+
     /**
-     * 
-     * @param integer $parent
+     *
+     * @param Tx_Feupload_Domain_Model_Folder $parent            
      */
-    public function setParent ($parent)
+    public function setParent (Tx_Feupload_Domain_Model_Folder $parent)
     {
         $this->parent = $parent;
     }
+
     /**
-     * 
-     * @return integer
+     *
+     * @return Tx_Feupload_Domain_Model_Folder
      */
     public function getParent ()
     {

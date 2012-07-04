@@ -56,9 +56,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY, 
 	'Folder', 
 	array(
-		'Folder' => 'index,delete'), 
+		'Folder' => 'index,cd'), 
     array(
-    	'Folder' => 'index,delete')
+    	'Folder' => 'index,cd')
 );
 
 ?>

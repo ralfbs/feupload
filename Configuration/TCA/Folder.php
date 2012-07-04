@@ -114,9 +114,20 @@ $TCA['tx_feupload_domain_model_folder'] = array(
                         'exclude' => 0,
                         'label' => 'LLL:EXT:feupload/Resources/Private/Language/tca.xml:tx_feupload_domain_model_folder.parent',
                         'config' => array(
-                                'type' => 'input',
-                                'max' => 255,
-                                'eval' => 'trim'
+                                'type' => 'select',
+                                'size' => 1,
+                                'maxitems' => 1,
+                                'minitems' => 0,
+                                'renderMode' => 'tree',
+                                'treeConfig' => array(
+                                        'parentField' => 'pid',
+                                        'rootUid' => 1,
+                                        'appearance' => array(
+                                                'expandAll' => TRUE,
+                                                'showHeader' => TRUE,
+                                        ),
+                                ),
+                                'foreign_table' => 'pages'
                         )
                 ),
                 'crdate' => array(

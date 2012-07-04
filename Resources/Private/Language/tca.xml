@@ -9,7 +9,7 @@
 			<label index="tx_feupload_domain_model_file.fe_user.empty">(No owner)</label>
 			<label index="tx_feupload_domain_model_file.fe_user.div">Users</label>
 			<label index="tx_feupload_domain_model_file.folder">Folder</label>
-			<label index="tx_feupload_domain_model_file.folder.empty">(Root)</label>
+			<label index="tx_feupload_domain_model_file.folder.empty">(none)</label>
 			<label index="tx_feupload_domain_model_file.folder.div">Folders</label>
 			<label index="tx_feupload_domain_model_file.visibility">Visibility</label>
 			<label index="tx_feupload_domain_model_file.visibility.only_groups">For selected groups only</label>

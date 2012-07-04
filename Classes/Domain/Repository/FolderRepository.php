@@ -24,8 +24,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-
-
 /**
  * Folder repository
  *
@@ -35,46 +33,84 @@
  */
 class Tx_Feupload_Domain_Repository_FolderRepository extends Tx_Extbase_Persistence_Repository
 {
-	
-	/**
-	 * Find files by a group
-	 *
-	 * @param		Tx_Feupload_Domain_Model_Group 		$group
-	 * @return	array
-	 */
-	public function findByGroup($group)
-	{
-		$query = $this->createQuery();
-		$this->setQuerySettings($query);
-		
-		return $query->matching($query->contains('feGroups', $group), $query->equals('visibility', 1))->execute();
-	}
-	
-	/**
-	 * Find by visibility setting
-	 *
-	 * @param		integer 	$visibility			0 for everyone, -1 for "Only guests", -2 for "Only logged-in"
-	 * @return	array
-	 */
-	public function findByVisibility($visibility)
-	{
-		$query = $this->createQuery();
-		$this->setQuerySettings($query);
-		
-		return $query->matching($query->equals('visibility', $visibility))->execute();
-	}
-	
-	
-	
-	/**
-	 * Sets query settings
-	 *
-	 * @param		Tx_Extbase_Persistence_Query		&$query
-	 */
-	protected function setQuerySettings(Tx_Extbase_Persistence_Query &$query)
-	{
-		if( (int)$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['feupload']['enableStoragePage'] == 0 )  $query->getQuerySettings()->setRespectStoragePage(false);
-	}
-	
+
+    /**
+     * ID of the parent folder|0 if we are at root level
+     *
+     * @var integer
+     */
+    protected $_parent = 0;
+
+    /**
+     * Set the parent level for all calls
+     *
+     * @param ingeger $parent            
+     */
+    public function setParent ($parent = 0)
+    {
+        $this->_parent = $parent;
+    }
+
+    /**
+     * return the parent level
+     *
+     * @return number
+     */
+    public function getParent ()
+    {
+        return $this->_parent;
+    }
+
+    /**
+     * Find files by a group
+     *
+     * @param Tx_Feupload_Domain_Model_Group $group            
+     * @return array
+     */
+    public function findByGroup ($group)
+    {
+        $query = $this->createQuery();
+        $this->setQuerySettings($query);
+        
+        $constraint = $query->logicalAnd(
+                $query->equals('parent', $this->_parent), 
+                $query->contains('feGroups', $group), 
+                $query->equals('visibility', 
+                        Tx_Feupload_Domain_Model_Folder::VISIBILITY_GROUPS));
+        
+        return $query->matching($constraint)->execute();
+    }
+
+    /**
+     * Find by visibility setting
+     *
+     * @param integer $visibility
+     *            for everyone, -1 for "Only guests", -2 for "Only logged-in"
+     * @return array
+     */
+    public function findByVisibility ($visibility)
+    {
+        $query = $this->createQuery();
+        $this->setQuerySettings($query);
+        
+        $query->matching(
+                $query->logicalAnd($query->equals('visibility', $visibility), 
+                        $query->equals('parent', $this->_parent)));
+        return $query->execute();
+    }
+
+    /**
+     * Sets query settings
+     *
+     * @param
+     *            Tx_Extbase_Persistence_Query		&$query
+     */
+    protected function setQuerySettings (Tx_Extbase_Persistence_Query &$query)
+    {
+        if ((int) $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['feupload']['enableStoragePage'] ==
+                 0) {
+            $query->getQuerySettings()->setRespectStoragePage(false);
+        }
+    }
 }
 ?>
