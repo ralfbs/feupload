@@ -20,7 +20,8 @@
 				<td>
 					<f:if condition="{file.deletable}">
 						<f:then>
-							<f:link.action action="delete" arguments="{file: file}" class="delete"><f:translate key="file.action.delete" /></f:link.action>
+							<f:link.action action="delete" arguments="{file: file}" class="delete">
+								<f:image src="EXT:feupload/Resources/Public/Icons/bin.png" alt="{f:translate(key='file.action.delete'}" /></f:link.action>
 						</f:then>
 					</f:if>
 				</td>

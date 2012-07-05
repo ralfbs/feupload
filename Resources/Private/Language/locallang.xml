@@ -33,6 +33,14 @@
 			<label index="file.table.download">File type</label>
 			<label index="file.table.owner">Onwer</label>
 			<label index="file.table.created">Created at</label>
+			
+			<label index="folder.table.name">Folder</label>	
+			<label index="folder.attributes.title">Title</label>	
+			
+			<label index="folder.action.new">Create new folder</label>
+			
+			<label index="folder.form.upload">Title</label>
+						
 		</languageKey>
 		
 		<languageKey index="de" type="array">
@@ -59,7 +67,14 @@
 			<label index="file.table.type">Typ</label>
 			<label index="file.table.download">Datei</label>
 			<label index="file.table.owner">Eigentümer</label>
-			<label index="file.table.created">Erstellt</label>			
+			<label index="file.table.created">Erstellt</label>	
+
+			<label index="folder.table.name">Ordner</label>		
+			<label index="folder.attributes.title">Bezeichung</label>
+			
+			<label index="folder.action.new">Neuen Ordner anlegen</label>		
+			
+			<label index="folder.form.upload">Ordner erstellen</label>		
 			
 		</languageKey>
 		

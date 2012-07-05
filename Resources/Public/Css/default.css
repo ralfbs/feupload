@@ -25,3 +25,27 @@
 .tx-feupload-downloadtable td {
 	padding: 3px;
 }
+
+.tx-feupload-folder {
+	
+}
+
+ul.tx-feupload-folder {
+	list-style: none;
+}
+
+.tx-feupload-folder-action-new {
+	padding-left: 20px;
+}
+
+form.tx-feupload {
+	
+}
+
+form.tx-feupload fieldset {
+	border: 1px solid #8080;
+}
+
+form.tx-feupload fieldset legend {
+	
+}

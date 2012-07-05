@@ -56,9 +56,9 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	$_EXTKEY, 
 	'Folder', 
 	array(
-		'Folder' => 'index,cd'), 
+		'Folder' => 'index,cd,new,create'), 
     array(
-    	'Folder' => 'index,cd')
+    	'Folder' => 'index,cd,new,create')
 );
 
 ?>
