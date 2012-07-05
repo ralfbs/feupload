@@ -3,6 +3,8 @@
 <f:section name="content">
 	{namespace fu=Tx_Feupload_ViewHelpers}
 	
+		<f:if condition="{files}">
+		<f:then>
 		<table class="tx-feupload-downloadtable">
 			<tr>
 				<th><f:translate key="file.table.type" /></th>
@@ -28,4 +30,9 @@
 			</tr>
 			</f:for>
 		</table>
+		</f:then>
+		<f:else>
+		</f:else>
+			<f:translate key="folder.empty" />
+		</f:if>
 </f:section>

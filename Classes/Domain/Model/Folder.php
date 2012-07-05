@@ -255,19 +255,49 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
      *
      * @return boolean
      */
-    public function getDeletable ()
+    public function isDeletable ()
     {
-        if ($GLOBALS['TSFE']->fe_user->user && (int) $GLOBALS['TSFE']->fe_user->user['uid'] ==
+        // must be owned by user anyway
+        if (! $GLOBALS['TSFE']->fe_user->user && (int) $GLOBALS['TSFE']->fe_user->user['uid'] ==
                  (int) $this->feUser->uid) {
-            return true;
-        } else {
             return false;
         }
+
+        if (! $this->isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * do we have any subfolders or any files? => may not delete folder
+     */
+    public function isEmpty ()
+    {
+        /*
+         * @var $folderRepositry Tx_Feupload_Domain_Repository_FolderRepository
+         */
+        $folderRepositry = t3lib_div::makeInstance(
+                'Tx_Feupload_Domain_Repository_FolderRepository');
+        if ($folderRepositry->numChildren($this) > 0) {
+            return false;
+        }
+        
+        /*
+         * @var $folderRepositry Tx_Feupload_Domain_Repository_FileRepository
+         */
+        $fileRepositry = t3lib_div::makeInstance(
+                'Tx_Feupload_Domain_Repository_FileRepository');
+        
+        if ($fileRepositry->numFilesInFolder($this) > 0) {
+            return false;
+        }
+        return true;
     }
 
     /**
      * we have to create folders with uid=0 for the root directory
-     * 
+     *
      * @param integer $uid            
      */
     public function setUid ($uid)

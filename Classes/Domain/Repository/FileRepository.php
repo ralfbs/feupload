@@ -44,13 +44,13 @@ class Tx_Feupload_Domain_Repository_FileRepository extends Tx_Extbase_Persistenc
     /**
      * Set the parent level for all calls
      *
-     * @param ingeger $parent
+     * @param ingeger $parent            
      */
     public function setFolderId ($folderId = 0)
     {
         $this->_folder = $folderId;
     }
-    
+
     /**
      * return the parent level
      *
@@ -60,7 +60,7 @@ class Tx_Feupload_Domain_Repository_FileRepository extends Tx_Extbase_Persistenc
     {
         return $this->_folder;
     }
-    
+
     /**
      * Find files by a group
      *
@@ -92,7 +92,7 @@ class Tx_Feupload_Domain_Repository_FileRepository extends Tx_Extbase_Persistenc
     {
         $query = $this->createQuery();
         $this->setQuerySettings($query);
-
+        
         $query->matching(
                 $query->logicalAnd($query->equals('visibility', $visibility), 
                         $query->equals('folder', $this->_folder)));
@@ -100,6 +100,20 @@ class Tx_Feupload_Domain_Repository_FileRepository extends Tx_Extbase_Persistenc
         $ret = $query->execute();
         
         return $ret;
+    }
+
+    /**
+     * all files within one folder 
+     *
+     * @param Tx_Feupload_Domain_Model_Folder $folder            
+     * @return integer
+     */
+    public function numFilesInFolder (Tx_Feupload_Domain_Model_Folder $folder)
+    {
+        $query = $this->createQuery();
+        $this->setQuerySettings($query);
+        $query->matching($query->equals('folder', $folder->getUid()));
+        return $query->count();
     }
 
     /**

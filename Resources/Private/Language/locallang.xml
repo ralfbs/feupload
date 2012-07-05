@@ -35,9 +35,11 @@
 			<label index="file.table.created">Created at</label>
 			
 			<label index="folder.table.name">Folder</label>	
-			<label index="folder.attributes.title">Title</label>	
+			<label index="folder.attributes.title">Title</label>
+			<label index="folder.empty">(empty)</label>	
 			
 			<label index="folder.action.new">Create new folder</label>
+			<label index="folder.action.delete">Delete folder</label>
 			
 			<label index="folder.form.upload">Title</label>
 						
@@ -71,8 +73,10 @@
 
 			<label index="folder.table.name">Ordner</label>		
 			<label index="folder.attributes.title">Bezeichung</label>
+			<label index="folder.empty">(leer)</label>	
 			
-			<label index="folder.action.new">Neuen Ordner anlegen</label>		
+			<label index="folder.action.new">Neuen Ordner anlegen</label>
+			<label index="folder.action.delete">Ordner löschen</label>		
 			
 			<label index="folder.form.upload">Ordner erstellen</label>		
 			

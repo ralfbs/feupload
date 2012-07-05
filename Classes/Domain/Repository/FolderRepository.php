@@ -99,6 +99,25 @@ class Tx_Feupload_Domain_Repository_FolderRepository extends Tx_Extbase_Persiste
         return $query->execute();
     }
 
+
+    
+    /**
+     * all Folders parent folder
+     *
+     * @param Tx_Feupload_Domain_Model_Folder $parent
+     * @return integer
+     */
+    public function numChildren (Tx_Feupload_Domain_Model_Folder $parent)
+    {
+        $query = $this->createQuery();
+    
+        $this->setQuerySettings($query);
+        $query->matching($query->equals('parent', $parent->getUid()));
+        $ret = $query->count();
+        return $ret;
+    }
+    
+
     /**
      * Sets query settings
      *

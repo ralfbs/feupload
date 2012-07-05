@@ -1,33 +1,48 @@
 <f:layout name="default" />
 
 <f:section name="content">
-	
 
-	<div class="tx-feupload-breadcrumb">{currentFolder.title}</div>
-	
+
+	<div class="tx-feupload-breadcrumb"></div>
+
 	<f:link.action action="cd" arguments="{folder: 0}">..</f:link.action>
-	
+
 	<ul class="tx-feupload-folder">
 
 		<f:if condition="{parent} > 0">
-		<li class='even'>
-			<f:image src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png" alt="folder" />&nbsp;{currentFolder.title}
-		</li>
-		</f:if>	
+			<li class='even tx-feupload-folder-current'><f:image
+					src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png"
+					alt="folder" />&nbsp;{currentFolder.title}&nbsp; <f:if
+					condition="{mayDeleteFolder}">
+					<f:link.action action="delete" arguments="{folder: currentFolder}">
+						<f:image src="EXT:feupload/Resources/Public/Icons/bin.png"
+							alt="{f:translate(key='folder.action.delete')}" />
+					</f:link.action>
+				</f:if></li>
+		</f:if>
 
-		
-		<f:for each="{folders}" as="folder" iteration="iter">
-		<li class='<f:if condition="{iter.isEven}"><f:then>tr-even</f:then><f:else>tr-odd</f:else></f:if>'>
-			<f:link.action action="cd" arguments="{folder: folder.uid}"><f:image src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png" alt="folder" /></f:link.action>&nbsp;
-			<f:link.action action="cd" arguments="{folder: folder.uid}">{folder.title}</f:link.action>
-		</li>
-		</f:for>
+		<f:if condition="{folders}">
+			<f:for each="{folders}" as="folder" iteration="iter">
+				<li
+					class='<f:if condition="{iter.isEven}"><f:then>tr-even</f:then><f:else>tr-odd</f:else></f:if>'>
+					<f:link.action action="cd" arguments="{folder: folder.uid}">
+						<f:image
+							src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png"
+							alt="folder" />
+					</f:link.action>&nbsp; <f:link.action action="cd" arguments="{folder: folder.uid}">{folder.title}</f:link.action>
+
+				</li>
+			</f:for>
+		</f:if>
 	</ul>
 
 	<div class="tx-feupload-folder-action-new">
-	<f:link.action action='new'>
-		<f:image src="EXT:feupload/Resources/Public/Icons/folder_add.png" alt="{f:translate(key='folder.action.new')}" />
-		<f:translate key="folder.action.new" /></f:link.action>
-	</div>	
+		<f:link.action action='new'>
+			<f:image src="EXT:feupload/Resources/Public/Icons/folder_add.png"
+				alt="{f:translate(key='folder.action.new')}" />
+			<f:translate key="folder.action.new" />
+		</f:link.action>
+	</div>
+
 </f:section>
 

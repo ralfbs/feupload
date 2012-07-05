@@ -130,6 +130,8 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
         $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
         $parent = (int) $sessionHandler->restoreFromSession();
         
+        $folder = $sessionHandler->getCurrentFolder();
+        
         $this->folderRepository->setParent($parent); // root = 0
         $folders = array();
         
@@ -152,12 +154,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
             $folders = array_merge($folders, 
                     $this->folderRepository->findByVisibility(- 0)->toArray());
         }
-        
-        uasort($folders, 
-                array(
-                        $this,
-                        'sortfolders'
-                ));
+        $this->view->assign('mayDeleteFolder', $folder->isDeletable());
         $this->view->assign('folders', $folders);
         $this->view->assign('parent', $parent);
         $this->view->assign('current_user', $GLOBALS['TSFE']->fe_user->user);
@@ -219,7 +216,6 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
      */
     public function createAction (Tx_Feupload_Domain_Model_Folder $folder)
     {
-        var_dump("x");
         if ($GLOBALS['TSFE']->fe_user->user) {
             // This is because $GLOBALS['TSFE']->fe_user is of type
             // tslib_feUserAuth
@@ -289,13 +285,17 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
      * Deletes a folder
      *
      * @param Tx_Feupload_Domain_Model_Folder $folder
-     *            $folder
      * @return void
      */
     public function deleteAction (Tx_Feupload_Domain_Model_Folder $folder)
     {
-        if ($folder->getDeletable()) {
+        $parentId = $folder->getParent();
+        
+        if ($folder->isDeletable()) {
             $this->folderRepository->remove($folder);
+            /* @var $sessionHandler Tx_Feupload_Session_Folder */
+            $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
+            $sessionHandler->writeToSession($parentId);
             $this->flashMessageContainer->add(
                     Tx_Extbase_Utility_Localization::translate(
                             'LLL:EXT:feupload/Resources/Private/Language/locallang.xml:flash.ok.folder.deleted.title'), 
@@ -308,43 +308,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
                                     $folder->getTitle()
                             )), t3lib_FlashMessage::ERROR);
         }
-        
-        $this->redirect('index');
-    }
 
-    /**
-     * Callback for userfunc-sorting
-     *
-     * @param mixed $a
-     *            to compare
-     * @param mixed $b
-     *            to compare
-     * @return integer position (-1, 0, 1)
-     */
-    protected function sortFolders ($a, $b)
-    {
-        if (! $this->settings['sorting']['field']) {
-            $this->settings['sorting']['field'] = 'getTitle';
-        }
-        $a_val = strtoupper($a->{$this->settings['sorting']['field']}());
-        $b_val = strtoupper($b->{$this->settings['sorting']['field']}());
-        
-        if ($a_val == $b_val) {
-            return 0;
-        }
-        
-        switch ($this->settings['sorting']['mode']) {
-            case 'ASC':
-                return $a_val < $b_val ? - 1 : 1;
-                break;
-            
-            case 'DESC':
-                return $a_val < $b_val ? 1 : - 1;
-                break;
-            
-            default:
-                return 0;
-                break;
-        }
+        $this->redirect('index');
     }
 }
