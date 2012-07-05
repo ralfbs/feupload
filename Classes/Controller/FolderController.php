@@ -126,6 +126,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
      */
     public function indexAction ()
     {
+
         /* @var $sessionHandler Tx_Feupload_Session_Folder */
         $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
         $parent = (int) $sessionHandler->restoreFromSession();
@@ -284,7 +285,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
     /**
      * Deletes a folder
      *
-     * @param Tx_Feupload_Domain_Model_Folder $folder
+     * @param Tx_Feupload_Domain_Model_Folder $folder            
      * @return void
      */
     public function deleteAction (Tx_Feupload_Domain_Model_Folder $folder)
@@ -294,7 +295,8 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
         if ($folder->isDeletable()) {
             $this->folderRepository->remove($folder);
             /* @var $sessionHandler Tx_Feupload_Session_Folder */
-            $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
+            $sessionHandler = t3lib_div::makeInstance(
+                    'Tx_Feupload_Session_Folder');
             $sessionHandler->writeToSession($parentId);
             $this->flashMessageContainer->add(
                     Tx_Extbase_Utility_Localization::translate(
@@ -308,7 +310,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
                                     $folder->getTitle()
                             )), t3lib_FlashMessage::ERROR);
         }
-
+        
         $this->redirect('index');
     }
 }
