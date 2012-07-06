@@ -126,7 +126,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
      */
     public function indexAction ()
     {
-
+        
         /* @var $sessionHandler Tx_Feupload_Session_Folder */
         $sessionHandler = t3lib_div::makeInstance('Tx_Feupload_Session_Folder');
         $parent = (int) $sessionHandler->restoreFromSession();
@@ -161,6 +161,7 @@ class Tx_Feupload_Controller_FolderController extends Tx_Extbase_MVC_Controller_
         $this->view->assign('current_user', $GLOBALS['TSFE']->fe_user->user);
         $this->view->assign('currentFolder', 
                 $sessionHandler->getCurrentFolder());
+        $this->view->assign('rootlineFolders', array_reverse($folder->getRootlineFolders()));
     }
 
     /**

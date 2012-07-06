@@ -3,22 +3,20 @@
 <f:section name="content">
 
 
-	<div class="tx-feupload-breadcrumb"></div>
+	<div class="tx-feupload-breadcrumb">
+		<f:render partial="Rootline"
+			arguments="{rootlineFolders: rootlineFolders}" />
+	</div>
 
-	<f:link.action action="cd" arguments="{folder: 0}">/</f:link.action>
+
 
 	<ul class="tx-feupload-folder">
 
-		<f:if condition="{parent} > 0">
-			<li class='even tx-feupload-folder-current'><f:image
-					src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png"
-					alt="folder" />&nbsp;{currentFolder.title}&nbsp; <f:if
-					condition="{mayDeleteFolder}">
-					<f:link.action action="delete" arguments="{folder: currentFolder}">
-						<f:image src="EXT:feupload/Resources/Public/Icons/bin.png"
-							alt="{f:translate(key='folder.action.delete')}" />
-					</f:link.action>
-				</f:if></li>
+		<f:if condition="{mayDeleteFolder}">
+			<f:link.action action="delete" arguments="{folder: currentFolder}">
+				<f:image src="EXT:feupload/Resources/Public/Icons/bin.png"
+					alt="{f:translate(key='folder.action.delete')}" />
+			</f:link.action>
 		</f:if>
 
 		<f:if condition="{folders}">
@@ -28,7 +26,7 @@
 					<f:link.action action="cd" arguments="{folder: folder.uid}">
 						<f:image
 							src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png"
-							alt="folder" />
+							alt=" " />
 					</f:link.action>&nbsp; <f:link.action action="cd" arguments="{folder: folder.uid}">{folder.title}</f:link.action>
 
 				</li>
@@ -43,6 +41,7 @@
 			<f:translate key="folder.action.new" />
 		</f:link.action>
 	</div>
+	<f:debug>{rootlineFolders}</f:debug>
 
 </f:section>
 

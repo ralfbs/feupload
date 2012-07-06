@@ -1,0 +1,13 @@
+<f:link.action action="cd" arguments="{folder: 0}">
+	<f:image
+		src="EXT:feupload/Resources/Public/Icons/tx_feupload_domain_model_folder.png"
+		alt=" " />
+</f:link.action>
+<f:for each="{rootlineFolders}" as="folder" iteration="iter">
+	<f:if condition="{folder.uid} > 0">
+	&nbsp;&gt;&nbsp;
+	<f:link.action action="cd" arguments="{folder: folder.uid}">{folder.title}</f:link.action>
+	</f:if>
+
+</f:for>
+

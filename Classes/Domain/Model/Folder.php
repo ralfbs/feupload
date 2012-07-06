@@ -262,7 +262,7 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
                  (int) $this->feUser->uid) {
             return false;
         }
-
+        
         if (! $this->isEmpty()) {
             return false;
         }
@@ -293,6 +293,37 @@ class Tx_Feupload_Domain_Model_Folder extends Tx_Extbase_DomainObject_AbstractEn
             return false;
         }
         return true;
+    }
+
+    /**
+     * find all folders from this folder up in the rootline
+     *
+     * @param array $folders
+     *            as we use recursion, already found folders are returned here
+     * @return array of folders
+     */
+    public function getRootlineFolders (array $folders = null)
+    {
+        // add current element
+        $folders[] = array('uid' => $this->uid, 'title'=>$this->getTitle());
+        
+        /*@var $folderRepositry Tx_Feupload_Domain_Repository_FolderRepository */
+        $folderRepositry = t3lib_div::makeInstance(
+                'Tx_Feupload_Domain_Repository_FolderRepository');
+
+        // any parents?
+        if ($this->parent > 0) {
+            /* @var $parentFolder Tx_Feupload_Domain_Model_Folder */
+            $parentFolder = $folderRepositry->findByUid((int)$this->parent);
+            if ($parentFolder instanceof Tx_Feupload_Domain_Model_Folder) {
+                $folders = $parentFolder->getRootlineFolders($folders);
+            }
+        } else {
+            // no - add root element
+            $folders[] = array('uid'=>0, 'title'=>'/');
+        }
+        
+        return $folders;
     }
 
     /**
