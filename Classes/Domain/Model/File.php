@@ -50,14 +50,14 @@ class Tx_Feupload_Domain_Model_File extends Tx_Extbase_DomainObject_AbstractEnti
 
     /**
      * For not-logged in users
-     * 
+     *
      * @var integer
      */
     CONST VISIBILITY_NOTLOGGEDIN = - 1;
 
     /**
      * For all logged-in users
-     * 
+     *
      * @var integer
      */
     CONST VISIBILITY_LOGGEDIN = - 2;
@@ -157,6 +157,47 @@ class Tx_Feupload_Domain_Model_File extends Tx_Extbase_DomainObject_AbstractEnti
         $ext = strtolower($matches[2]);
         
         return $ext === 'jpeg' ? 'jpg' : $ext;
+    }
+
+    /**
+     *
+     * @return string
+     *         (application|code|db|doc|file|film|flash|html|java|music|pdf|txt|xls|zip)
+     */
+    public function getFileType ()
+    {
+        switch ($this->getFileExt()) {
+            case 'jpg':
+            case 'png':
+            case 'gif':
+            case 'tiff':
+                $ret = 'picture';
+                break;
+            case 'doc':
+            case 'docx':
+                $ret = 'doc';
+                break;
+            case 'html':
+            case 'htm':
+                $ret = 'html';
+                break;
+            case 'pdf':
+                $ret = 'pdf';
+                break;
+            case 'ppt':
+            case 'pptx':
+                $ret = 'ppt';
+                break;
+            case 'rar':
+            case 'zip':
+            case 'gz':
+                return 'zip';
+                break;
+            default:
+                $ret = 'file';
+                break;
+        }
+        return $ret;
     }
 
     /**
