@@ -15,7 +15,7 @@
 			</tr>
 			<f:for each="{files}" as="file" iteration="iter">
 			<tr class='<f:if condition="{iter.isEven}"><f:then>tr-even</f:then><f:else>tr-odd</f:else></f:if>'>
-				<td><f:render partial="FileType" arguments="{file: file}" /></td>
+				<td><fu:fileIcon file="{file}" /></td>
 				<td><fu:download file="{file}" /></td>
 				<td>{file.owner.username}</td>
 				<td><f:format.date>@{file.crdate}</f:format.date></td>
