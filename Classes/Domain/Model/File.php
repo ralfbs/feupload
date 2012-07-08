@@ -161,47 +161,6 @@ class Tx_Feupload_Domain_Model_File extends Tx_Extbase_DomainObject_AbstractEnti
 
     /**
      *
-     * @return string
-     *         (application|code|db|doc|file|film|flash|html|java|music|pdf|txt|xls|zip)
-     */
-    public function getFileType ()
-    {
-        switch ($this->getFileExt()) {
-            case 'jpg':
-            case 'png':
-            case 'gif':
-            case 'tiff':
-                $ret = 'picture';
-                break;
-            case 'doc':
-            case 'docx':
-                $ret = 'doc';
-                break;
-            case 'html':
-            case 'htm':
-                $ret = 'html';
-                break;
-            case 'pdf':
-                $ret = 'pdf';
-                break;
-            case 'ppt':
-            case 'pptx':
-                $ret = 'ppt';
-                break;
-            case 'rar':
-            case 'zip':
-            case 'gz':
-                return 'zip';
-                break;
-            default:
-                $ret = 'file';
-                break;
-        }
-        return $ret;
-    }
-
-    /**
-     *
      * @param string $title            
      * @return void
      */

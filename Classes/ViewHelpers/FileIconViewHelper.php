@@ -3,7 +3,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2012 Pascal Dürsteler <pascal.duersteler@gmail.com>
+*  (c) 2012 Ralf Schneider <ralf@hr-interactive.com>
 *  All rights reserved
 *
 *
@@ -25,22 +25,36 @@
 ***************************************************************/
 
 /**
- * Renders a file download with the FILELINK cObject so it integrates
- * with e.g.
- * ml_links.
  *
  * @package Feupload
  * @subpackage ViewHelpers
- * @author Pascal Dürsteler
+ * @author Ralf Schneider
  */
 class Tx_Feupload_ViewHelpers_FileIconViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper
 {
 
     /**
+     * Resizes a given image (if required) and renders the respective img tag
+     *
+     * @see http://typo3.org/documentation/document-library/references/doc_core_tsref/4.2.0/view/1/5/#id4164427
+     *
+     *@param Tx_Feupload_Domain_Model_File $file
+     * @return string rendered tag.
+     */
+    public function render ($file)
+    {
+        $type = $this->_getFileType($file);
+        $path = t3lib_extMgm::extRelPath('feupload');
+        $src = "{$path}/Resources/Public/Css/images/{$type}.png";
+        $tag = "<img src='{$src}' alt='{$type}' />";
+        return $tag;
+    }
+
+    /**
      *
      * @param Tx_Feupload_Domain_Model_File $file            
      */
-    public function render ($file)
+    protected function _getFileType ($file)
     {
         switch ($file->getFileExt()) {
             case 'jpg':
@@ -73,6 +87,7 @@ class Tx_Feupload_ViewHelpers_FileIconViewHelper extends Tx_Fluid_Core_ViewHelpe
                 $ret = 'file';
                 break;
         }
+        
         return $ret;
     }
 }
